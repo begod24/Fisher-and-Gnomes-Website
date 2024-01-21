@@ -1,0 +1,285 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+:root {
+ --index: calc(1vw + 1vh);
+ --text: rgba(255, 255, 255, 0.958);
+ --transition: transform.75s cubic-bezier(.075, 0.5, 0, 1);
+ --size:var(--size)
+}
+
+@font-face {
+    font-family: raleway_f;
+    src: url(../fonts/dpcomic.ttf);
+}
+
+body{
+    background-color: #010101;
+    color: #fff;
+    font-family: raleway_f, sans-serif;
+    line-height: 1.55;
+}
+
+.nav {
+ position: fixed;
+ top: -25px;
+ left: 0;
+ width: 100%;
+ padding: 20px 10%;
+ background: transparent;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ z-index: 100;
+}
+
+.logo {
+    font-size: 100px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav a{
+    font-size: 38px;
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: pink;
+}
+
+.ui {
+    position: relative;
+    width: 1530px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(var(--index) * 8);
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: calc(var(--index) * 3);
+}
+
+.main-header{
+    position: relative;
+}
+
+.main-header::after{
+content: '';
+position: absolute;
+z-index: 100;
+width: 100%;
+height: calc(var(--index) * 9.5);
+background-image: url();
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+bottom: calc(var(--index) * -5);
+}
+
+
+.layers {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+.layer{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
+    z-index: 2;
+    transition: var(--transition);
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-pixelated;
+    image-rendering: pixelated;
+}
+
+.layers_base {
+ transform: translate3d(0, calc(var(--scrollTop) / 1.8), 0);
+ z-index: 0;
+}
+
+.layer_middle{
+    transform: translate3d(0, calc(var(--scrollTop) / 2.6), 0);
+    transition: var(--transition);
+}
+
+.layer_front{
+    transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
+    transition: var(--transition);
+}
+
+.layers_header{
+ z-index: 1;
+ position: fixed;
+ top: -110px;
+ left: 20;
+ transform: translate3d(0, calc(var(--scrollTop) / 4), 0);
+ transition: var(--transition);
+ will-change: transform;
+ color: var(--text);
+ text-shadow: 0 0 15px rgb(57, 54, 57)
+}
+
+
+.layers_title {
+    font-size: calc(var(--index) *2.2);
+    letter-spacing: calc(var(--index) / 2.25);
+}   
+
+
+.layers_caption {
+    font-size: calc(var(--index) / 1);
+    letter-spacing: calc(var(--index) / 3.5);
+    margin-top: calc(var(--index) / -25) ;
+}
+
+
+.main-article{
+--main-article-transform:translate3d(0, calc(var(--scrollTop) / -8), 0);
+transition: var(--transition);
+min-height: 100vh;
+background-size: 85%;
+background-repeat: no-repeat;
+background-position: center;
+color: var(--text);
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+text-align: center;
+top: -1px;
+z-index: 10;
+-ms-interpolation-mode: nearest-neighbor;
+image-rendering: -webkit-optimize-contrast;
+image-rendering: -moz-crisp-edges;
+image-rendering: -o-pixelated;
+image-rendering: pixelated;
+}
+
+.main-article_header {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: calc(var(--index) * 1.8);
+    letter-spacing:calc(var(--index) / 7.5) ;
+    margin-top: calc(var(--index) * 1);
+    transform: var(--main-article-transform);
+    transition: var(--transition);
+    will-change: transform;
+}
+
+.main-article_paragraph {
+max-width: 300px;
+color: #fff;
+max-width: calc(var(--index) * 28);
+font-size: calc(var(--index) * .9);
+margin-top: calc(var(--index) * 1);
+transform: var(--main-article-transform);
+transition: var(--transition);
+will-change: transform;
+}
+
+.content {
+ will-change: transform;
+}
+
+.sprite-container {
+display: flex;
+position: absolute;
+top: 85%;
+left: 10%;
+padding: 20px 10%;
+}
+
+.sprite-image {
+    width: 32px;
+    height: 32px;
+    background: url(../img/gnome\ alone\ 1.png);
+    background-repeat: no-repeat;
+    animation: play 2s steps(2) infinite;
+    transform: scale(4);
+}
+
+
+@keyframes play {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -64px 0;
+    }
+}
+
+.gg {
+display: flex;
+position: absolute;
+top: 210%;
+left: 28%;
+padding: 20px 10%;
+background-repeat: no-repeat;
+
+}
+
+.ggani {
+    width: 64px;
+    height: 64px;
+    background: url(../img/walk\ animation\ sheeeeeet.png);
+    background-repeat: no-repeat;
+    animation: gg 2.2s steps(24) infinite,
+    walk 12s linear infinite;
+    position: absolute;
+    left: 28%;
+    transform: scale(6);
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-pixelated;
+    image-rendering: pixelated;
+}
+
+@keyframes gg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -1536px 0;
+    }
+}
+
+@keyframes walk {
+    100% {
+       left: 100%;
+    }
+}
+
+
+
+.copy {
+    position: absolute;
+    color: #fff;
+    bottom: calc(var(--index) * 2.5) ;
+    opacity: .85;
+    font-size: calc(var(--index) * .75);
+    letter-spacing:calc(var(--index) / 37.5) ;
+}
